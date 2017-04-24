@@ -1,2 +1,3 @@
-# CSCI103
-C++ files in Fall 2016
+# Personal Project: GPA Calculator
+
+	Use C++ and Qt Creator
