@@ -1,5 +1,5 @@
 # Personal Project: GPA Calculator
 
-	Use C++ and Qt Creator
-	Project not fully completed yet, just some important files
-	Project not packaged yet.
+- **Languages:**: C++ backend, Qt frontend
+- **Current state:**: incomplete frontend and backend; not packaged yet
+- **Files:**: .pro file, gpastore class, mainwindow class headerfile and source file
