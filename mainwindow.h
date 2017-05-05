@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
+#include <sstream>
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -15,6 +17,7 @@
 #include <QComboBox>
 #include <QSize>
 #include <QSpinBox>
+#include <QMessageBox>
 #include "gpastore.h"
 
 class MainWindow : public QWidget
@@ -29,9 +32,11 @@ private slots:
     void showNewWindow();
     void quit();
     void done();
+    void cancel();
 private:
     void initializingComponents();
     void connectEvents();
+    void clearInput();
     GPAStore* data;
 private:
     QVBoxLayout* interfaceLayout;
@@ -103,6 +108,7 @@ private:
     QPushButton* removeFinalButton;
 
     QPushButton* addClassDoneButton;
+    QPushButton* cancelButton;
 
 };
 

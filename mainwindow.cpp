@@ -199,6 +199,8 @@ void MainWindow::initializingComponents()
 
     addClassDoneButton = new QPushButton("done");
     overallLayout->addWidget(addClassDoneButton);
+    cancelButton = new QPushButton("cancel");
+    overallLayout->addWidget(cancelButton);
 
     overallLayout->addStretch();
 
@@ -210,10 +212,12 @@ void MainWindow::connectEvents()
     connect(addClassButton, SIGNAL(clicked()), this, SLOT(showNewWindow()));
     connect(quitButton, SIGNAL(clicked()), this, SLOT(quit()));
     connect(addClassDoneButton, SIGNAL(clicked()), this, SLOT(done()));
+    connect(cancelButton, SIGNAL(clicked()), this, SLOT(cancel()));
 }
 
 void MainWindow::showNewWindow()
 {
+    clearInput();
     newWindow->show();
 }
 
@@ -224,5 +228,48 @@ void MainWindow::quit()
 
 void MainWindow::done()
 {
+    if(class_1_name_input->text().isEmpty())
+    {
+        QMessageBox msg(newWindow);
+        msg.setText("Class name shouldn't be empty.");
+        msg.setWindowTitle("Alert");
+        msg.exec();
+        return;
+    }
+    std::string classname = class_1_name_input->text().toStdString();
+    try {
+        data->addClass(classname);
+        std::stringstream ss;
+        ss << data->getClassGPA(classname);
+        std::string temp;
+        ss >> temp;
+        std::string result = classname + "\n" + "GPA: " + temp;
+        classList->addItem(QString::fromStdString(result));
+        newWindow->hide();
+    } catch(std::invalid_argument ia) {
+        QMessageBox msg(newWindow);
+        msg.setText("Class name already exists.");
+        msg.setWindowTitle("Alert");
+        msg.exec();
+        class_1_name_input->clear();
+    }
+}
+
+void MainWindow::cancel()
+{
     newWindow->hide();
+}
+
+void MainWindow::clearInput()
+{
+    class_1_name_input->clear();
+    hw_grade_input->clear();
+    hw_total_input->clear();
+    midterm_grade_input->clear();
+    midterm_total_input->clear();
+    final_grade_input->clear();
+    final_total_input->clear();
+    hw_1_list->clear();
+    midterm_list->clear();
+    final_list->clear();
 }
