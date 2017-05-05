@@ -27,6 +27,8 @@ public:
     ~MainWindow();
 private slots:
     void showNewWindow();
+    void quit();
+    void done();
 private:
     void initializingComponents();
     void connectEvents();
@@ -36,6 +38,7 @@ private:
     QListWidget* classList;
     QPushButton* addClassButton;
     QPushButton* removeClassButton;
+    QPushButton* quitButton;
     QWidget* newWindow;
     QVBoxLayout* overallLayout;
     QVBoxLayout* headline_area;
@@ -72,6 +75,34 @@ private:
     QHBoxLayout* midterm_input_label_area;
     QLabel* midterm_input_label;
     QSpinBox* midterm_input;
+    QHBoxLayout* midterm_score_area;
+    QLabel* midterm_score_label;
+    QLineEdit* midterm_grade_input;
+    QLineEdit* midterm_total_input;
+    QLabel* outof2;
+    QPushButton* addMtButton;
+    QPushButton* removeMtButton;
+
+    QVBoxLayout* final_area;
+    QHBoxLayout* final_label_area;
+    QLabel* final_label;
+    QSpinBox* final_percent;
+    QLabel* final_percent_blank;
+    QHBoxLayout* final_list_area;
+    QListWidget* final_list;
+    QVBoxLayout* final_input_area;
+    QHBoxLayout* final_input_label_area;
+    QLabel* final_input_label;
+    QSpinBox* final_input;
+    QHBoxLayout* final_score_area;
+    QLabel* final_score_label;
+    QLineEdit* final_grade_input;
+    QLineEdit* final_total_input;
+    QLabel* outof3;
+    QPushButton* addFinalButton;
+    QPushButton* removeFinalButton;
+
+    QPushButton* addClassDoneButton;
 
 };
 
