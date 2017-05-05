@@ -40,7 +40,7 @@ void MainWindow::initializingComponents()
 
     newWindow = new QWidget;
     newWindow->setWindowTitle("GPA Computing Tool 1.1");
-    newWindow->setFixedHeight(630);
+    newWindow->setFixedHeight(670);
     newWindow->setFixedWidth(650);
     overallLayout = new QVBoxLayout();
     class_1_area = new QVBoxLayout();
