@@ -26,9 +26,12 @@ void GPAStore::addClass(string className)
     }
 }
 
-double GPAStore::getClassGPA(string className)
+double GPAStore::getClassGPA(string className) const
 {
-    map<string, double>::iterator mit;
-    mit = master.find(className);
-    return mit->second;
+    return (master.find(className))->second;
+}
+
+void GPAStore::setClassGPA(string className, double gpa)
+{
+    (master.find(className))->second = gpa;
 }

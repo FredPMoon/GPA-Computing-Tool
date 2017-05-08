@@ -13,7 +13,8 @@ public:
     GPAStore();
     ~GPAStore();
     void addClass(std::string className);
-    double getClassGPA(std::string className);
+    double getClassGPA(std::string className) const;
+    void setClassGPA(std::string className, double gpa);
 private:
     std::map<std::string, double> master;
 
