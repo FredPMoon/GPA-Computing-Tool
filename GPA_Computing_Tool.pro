@@ -25,9 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    gpastore.cpp
+    gpastore.cpp \
+    class.cpp \
+    homework.cpp
 
 HEADERS  += mainwindow.h \
-    gpastore.h
+    gpastore.h \
+    class.h \
+    homework.h
 
 FORMS    +=

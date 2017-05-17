@@ -35,3 +35,14 @@ void GPAStore::setClassGPA(string className, double gpa)
 {
     (master.find(className))->second = gpa;
 }
+
+double GPAStore::computeMaster()
+{
+    std::map<std::string, double>::iterator it;
+    double sum = 0;
+    for(it=master.begin();it!=master.end();++it)
+    {
+        sum += it->second;
+    }
+    return sum / master.size();
+}
